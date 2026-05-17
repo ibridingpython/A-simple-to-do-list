@@ -1,0 +1,46 @@
+def command():
+    print("\n0 - to quit the program")
+    print("1 - to add an item")
+    print("2 - to remove the last item")
+    print("3 - to show the list")
+    print("4 - clear all task")
+    print("5 - remove a specific task")
+
+todolist = []
+
+while True:
+    command()
+    
+    prompt = int(input("Enter command: "))
+    
+    if prompt == 0:
+        print("Program terminated.")
+        print("PROGRAM CREATED BY Al, thank you for using!")
+        break
+    elif prompt == 1:
+        new_item = input("Enter the task: ")
+        todolist.append(new_item)
+        print("Item succesfully added!")
+    elif prompt == 2:
+        print("Item succesfully removed!")
+        todolist.pop()
+    elif prompt == 3:
+        print("\n===To Do List===")
+        for items in todolist:
+            print(f"> {items}")
+    elif prompt == 4:
+        todolist.clear()
+        print("List succesfully cleared!")
+    elif prompt == 5:
+        for items in todolist:
+            print(f"> {items}")
+        print("Enter '0' to cancel.")
+        remove_specific = int(input("Enter the task number: "))
+        if remove_specific == 0:
+            print("Succesfull.")
+        else:
+            removedtask = todolist[remove_specific-1]
+            del todolist[remove_specific-1]
+            print(f"Succesfully deleted task  '{removedtask}'")
+    else:
+        print("Input error.")
